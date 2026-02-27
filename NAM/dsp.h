@@ -281,6 +281,9 @@ LinearConfig parse_config_json(const nlohmann::json& config);
 /// \param sampleRate Expected sample rate in Hz
 /// \return unique_ptr<ModelConfig> wrapping a LinearConfig
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
+
+/// \brief Ensures Linear is linked so static registration runs (call from app startup).
+void ensure_linear_registered();
 } // namespace linear
 
 // NN modules =================================================================

@@ -187,5 +187,7 @@ ConvNetConfig parse_config_json(const nlohmann::json& config);
 /// \brief Config parser for ConfigParserRegistry
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
 
+/// \brief Ensures ConvNet is linked so static registration runs (call from app startup).
+void ensure_convnet_registered();
 }; // namespace convnet
 }; // namespace nam

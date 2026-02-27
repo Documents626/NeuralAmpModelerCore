@@ -923,3 +923,8 @@ namespace
 {
 static nam::ConfigParserHelper _register_WaveNet("WaveNet", nam::wavenet::create_config);
 }
+
+void nam::wavenet::ensure_wavenet_registered()
+{
+  (void)&_register_WaveNet;
+}

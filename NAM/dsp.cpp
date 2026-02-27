@@ -335,6 +335,11 @@ namespace
 static nam::ConfigParserHelper _register_Linear("Linear", nam::linear::create_config);
 }
 
+void nam::linear::ensure_linear_registered()
+{
+  (void)&_register_Linear;
+}
+
 // NN modules =================================================================
 
 // Conv1x1 ====================================================================
