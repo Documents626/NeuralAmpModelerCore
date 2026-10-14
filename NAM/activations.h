@@ -184,10 +184,17 @@ class ActivationTanh : public Activation
 public:
   void apply(float* data, long size) override
   {
+    // DREAMCORE PATCH: Eigen's vectorised float tanh (SIMD rational approximation, ~1e-7 accuracy)
+    // instead of a scalar std::tanh call per element. Orders of magnitude closer to std::tanh than
+    // nam's fast_tanh, but several times faster. Define NAM_SCALAR_TANH to restore the original loop.
+#ifdef NAM_SCALAR_TANH
     for (long pos = 0; pos < size; pos++)
     {
       data[pos] = std::tanh(data[pos]);
     }
+#else
+    Eigen::Map<Eigen::ArrayXf>(data, size) = Eigen::Map<Eigen::ArrayXf>(data, size).tanh();
+#endif
   }
 };
 
