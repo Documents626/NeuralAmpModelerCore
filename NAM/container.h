@@ -62,5 +62,8 @@ struct ContainerConfig : public ModelConfig
 
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
 
+/// Force-link SlimmableContainer ConfigParserHelper when /WHOLEARCHIVE is off.
+void ensure_container_registered();
+
 } // namespace container
 } // namespace nam
