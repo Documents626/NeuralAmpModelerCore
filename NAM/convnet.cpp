@@ -359,3 +359,8 @@ namespace
 {
 static nam::ConfigParserHelper _register_ConvNet("ConvNet", nam::convnet::create_config);
 }
+
+void nam::convnet::ensure_convnet_registered()
+{
+  // Intentionally empty: calling this forces the ConvNet TU (and registrar) to link.
+}

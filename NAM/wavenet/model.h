@@ -152,5 +152,8 @@ WaveNetConfig parse_config_json(const nlohmann::json& config, const double expec
 /// \brief Config parser for ConfigParserRegistry
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
 
+/// Force-link WaveNet ConfigParserHelper when /WHOLEARCHIVE is off.
+void ensure_wavenet_registered();
+
 } // namespace wavenet
 } // namespace nam

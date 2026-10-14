@@ -1333,3 +1333,8 @@ namespace
 {
 static nam::ConfigParserHelper _register_WaveNet("WaveNet", nam::wavenet::create_config);
 }
+
+void nam::wavenet::ensure_wavenet_registered()
+{
+  // Intentionally empty: calling this forces the WaveNet TU (and registrar) to link.
+}

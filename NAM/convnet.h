@@ -188,5 +188,8 @@ ConvNetConfig parse_config_json(const nlohmann::json& config);
 /// \brief Config parser for ConfigParserRegistry
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
 
+/// Force-link ConvNet ConfigParserHelper when /WHOLEARCHIVE is off.
+void ensure_convnet_registered();
+
 }; // namespace convnet
 }; // namespace nam

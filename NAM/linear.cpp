@@ -547,3 +547,8 @@ namespace
 {
 static nam::ConfigParserHelper _register_Linear("Linear", nam::linear::create_config);
 }
+
+void nam::linear::ensure_linear_registered()
+{
+  // Intentionally empty: calling this forces the Linear TU (and registrar) to link.
+}

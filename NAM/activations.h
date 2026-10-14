@@ -184,10 +184,16 @@ class ActivationTanh : public Activation
 public:
   void apply(float* data, long size) override
   {
+    // DREAMCORE/MIDWEST PATCH: Eigen SIMD float tanh (~1e-7) instead of scalar std::tanh.
+    // Define NAM_SCALAR_TANH for bit-exact builds.
+#ifdef NAM_SCALAR_TANH
     for (long pos = 0; pos < size; pos++)
     {
       data[pos] = std::tanh(data[pos]);
     }
+#else
+    Eigen::Map<Eigen::ArrayXf>(data, size) = Eigen::Map<Eigen::ArrayXf>(data, size).tanh();
+#endif
   }
 };
 

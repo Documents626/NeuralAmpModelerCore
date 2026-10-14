@@ -47,5 +47,8 @@ struct SequentialConfig : public ModelConfig
 
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
 
+/// Force-link Sequential ConfigParserHelper when /WHOLEARCHIVE is off (Gateway).
+void ensure_sequential_registered();
+
 } // namespace sequential
 } // namespace nam

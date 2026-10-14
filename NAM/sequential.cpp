@@ -240,5 +240,10 @@ std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, const d
 
 static ConfigParserHelper _register_Sequential("Sequential", create_config);
 
+void ensure_sequential_registered()
+{
+  // Intentionally empty: calling this forces the Sequential TU (and registrar) to link.
+}
+
 } // namespace sequential
 } // namespace nam

@@ -134,6 +134,9 @@ LinearConfig parse_config_json(const nlohmann::json& config);
 /// \param sampleRate Training sample rate in Hz
 /// \return unique_ptr<ModelConfig> wrapping a LinearConfig
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
+
+/// Force-link Linear ConfigParserHelper when /WHOLEARCHIVE is off.
+void ensure_linear_registered();
 } // namespace linear
 
 } // namespace nam

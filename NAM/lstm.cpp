@@ -202,3 +202,8 @@ namespace
 {
 static nam::ConfigParserHelper _register_LSTM("LSTM", nam::lstm::create_config);
 }
+
+void nam::lstm::ensure_lstm_registered()
+{
+  // Intentionally empty: calling this forces the LSTM TU (and registrar) to link.
+}

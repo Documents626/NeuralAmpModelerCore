@@ -119,5 +119,8 @@ LSTMConfig parse_config_json(const nlohmann::json& config);
 /// \brief Config parser for ConfigParserRegistry
 std::unique_ptr<ModelConfig> create_config(const nlohmann::json& config, double sampleRate);
 
+/// Force-link LSTM ConfigParserHelper when /WHOLEARCHIVE is off.
+void ensure_lstm_registered();
+
 }; // namespace lstm
 }; // namespace nam
